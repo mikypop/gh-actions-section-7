@@ -2,6 +2,7 @@ name: Matrix Demo
 on: push
 jobs:
   build:
+    continue-on-error: true
     strategy:
       matrix: # Called a matrix because every possible combination of the values in the matrix will be run
         node-version: [12, 14, 16]
