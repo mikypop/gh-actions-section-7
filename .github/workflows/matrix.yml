@@ -6,7 +6,7 @@ jobs:
       matrix: # Called a matrix because every possible combination of the values in the matrix will be run
         node-version: [12, 14, 16]
         operating-system: [ubuntu-latest, windows-latest] # Build runs once per value in the array, and they run on parallel
-    runs-on: ${{ matrix.operation-system }}
+    runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Get Code
         uses: actions/checkout@v3
