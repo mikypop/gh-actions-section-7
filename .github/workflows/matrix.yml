@@ -7,6 +7,13 @@ jobs:
       matrix: # Called a matrix because every possible combination of the values in the matrix will be run
         node-version: [12, 14, 16]
         operating-system: [ubuntu-latest, windows-latest] # Build runs once per value in the array, and they run on parallel
+        include: # Use include when you want to add a specific combination of values that don't fit the pattern of the matrix
+          - node-version: 18
+            operating-system: ubuntu-latest
+            # can also add extra options that aren't included above
+        exclude: # Excludes specific operations from the matrix
+          - node-version: 12
+            operating-system: windows-latest
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Get Code
